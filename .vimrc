@@ -15,7 +15,7 @@ set nocompatible               " be iMproved
  
  " NERD-Tree
  Bundle 'scrooloose/nerdtree'
-
+ 
  " Tagbar 
  Bundle 'majutsushi/tagbar'
 
@@ -46,7 +46,20 @@ set nocompatible               " be iMproved
 syntax enable
 set background=dark
 colorscheme solarized
+set guifont=Monaco:h14
 
+"===============================================
+"	GUI
+"===============================================
+set number
+set wildmenu
+set guioptions-=T
+set tabstop=3
+
+" Source the vimrc file after saving it
+if has("autocmd")
+	autocmd bufwritepost .vimrc source $MYVIMRC
+endif
 
 "===============================================
 "	Mappings
