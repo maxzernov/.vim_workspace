@@ -16,6 +16,9 @@ set nocompatible               " be iMproved
  " NERD-Tree
  Bundle 'scrooloose/nerdtree'
  
+ " CtrlP - an alternative to Command-T and FuzzyFinder for fuzzy openning
+ Bundle 'kien/ctrlp.vim'
+
  " Tagbar 
  Bundle 'majutsushi/tagbar'
 
@@ -24,6 +27,9 @@ set nocompatible               " be iMproved
 
  " Zen coding
  Bundle 'mattn/zencoding-vim'
+
+ " AutoClose
+ Bundle 'Townk/vim-autoclose'
  
  " Snipmate
  " Bundle 'msanders/snipmate.vim'
@@ -69,9 +75,33 @@ nmap <Leader>ev :tabedit $MYVIMRC <cr>
 nmap <space> :
 imap gj <esc>
 
+nmap <M-n> :NERDTreeToggle <cr> 
+
+" setup for ctrlP plugin
+map <C-o> :CtrlP <cr>
+map <S><C-o> :CtrlPMRU <cr>
+set wildignore+=*/tmp/*,*.so,*.swp,*.zip,*.pdf,*.png     " MacOSX/Linux
+set wildignore+=*\\tmp\\*,*.swp,*.zip,*.exe  " Windows
+
 " map for toggling NerdTree plugin
-map <C-n> :NERDTreeToggle<CR>
+map <C-n> :NERDTreeToggle<crtrlP 
+
+" zen coding expand and go to normal mode
+" imap <C-e> <C-y>,gj
+imap <Leader>e <C-y>,
 
 "===============================================
-"	...
+"	Syntastic settings
 "===============================================
+" Mapping for going through error list
+map <Leader>gn :lnext<cr>
+map <Leader>gp :lnext<cr>
+
+let g:syntastic_enable_signs=1
+let g:syntastic_enable_highlighting = 1
+let g:syntastic_enable_balloons = 1
+let g:syntastic_auto_loc_list=1
+let g:syntastic_check_on_open=1
+let g:syntastic_csslint_options = 1 
+" show only errors not warnings
+let g:syntastic_quiet_warnings=1
