@@ -30,9 +30,6 @@ set nocompatible               " be iMproved
 
  " AutoClose
  Bundle 'Townk/vim-autoclose'
- 
- " Snipmate
- " Bundle 'msanders/snipmate.vim'
 
  " Surround
  Bundle 'tpope/vim-surround'
@@ -40,11 +37,22 @@ set nocompatible               " be iMproved
  " T-comment
  Bundle 'tomtom/tcomment_vim'
 
+ " Snipmate
+ " install snipMate dependencies
+ Bundle "MarcWeber/vim-addon-mw-utils"
+ Bundle "tomtom/tlib_vim"
+ Bundle "honza/snipmate-snippets"
+ " install snipMate
+ Bundle "garbas/vim-snipmate"
 
  filetype plugin indent on     " required!
  " see :h vundle for more details or wiki for FAQ
  " NOTE: comments after Bundle command are not allowed..
 
+
+"===============================================
+"	snipMate setup
+"===============================================
 
 "===============================================
 "	Solarized Colorscheme
@@ -55,12 +63,25 @@ colorscheme solarized
 set guifont=Monaco:h14
 
 "===============================================
+"	Search options
+"===============================================
+" non case sensitive mode
+set ignorecase
+
+" if case defined use it
+set smartcase
+
+" show search result while search
+set incsearch
+
+"===============================================
 "	GUI
 "===============================================
 set number
 set wildmenu
 set guioptions-=T
-set tabstop=3
+" set tabstop=3
+set shiftwidth=3
 
 " Source the vimrc file after saving it
 if has("autocmd")
@@ -84,7 +105,7 @@ set wildignore+=*/tmp/*,*.so,*.swp,*.zip,*.pdf,*.png     " MacOSX/Linux
 set wildignore+=*\\tmp\\*,*.swp,*.zip,*.exe  " Windows
 
 " map for toggling NerdTree plugin
-map <C-n> :NERDTreeToggle<crtrlP 
+nmap <C-n> :NERDTreeToggle<cr>
 
 " zen coding expand and go to normal mode
 " imap <C-e> <C-y>,gj
