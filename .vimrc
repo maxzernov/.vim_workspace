@@ -125,4 +125,4 @@ let g:syntastic_auto_loc_list=1
 let g:syntastic_check_on_open=1
 let g:syntastic_csslint_options = 1 
 " show only errors not warnings
-let g:syntastic_quiet_warnings=1
+l
